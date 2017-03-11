@@ -5,12 +5,7 @@
 extern "C" {
 
 void one(char* data, int size) {
-    for(int i=0; i<10; i++) {
-        //std::cout << "Worker" << std::endl;
-        //emscripten_worker_respond_provisionally(data, size);
-    }
-    
     sleep (10);
-    emscripten_worker_respond(data, size);
+    emscripten_worker_respond(data, size);//Call main Thread. In this case call function onMessage in main.cpp
 }
 }
