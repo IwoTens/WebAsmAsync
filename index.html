@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-us">
+
+<button class="mybutton1">Run myFunction</button>
+</html>
+
+ <script async type="text/javascript" src="main.js"></script>
+<script type='text/javascript'>
+
+function finished() {
+  alert('finished');
+}
+
+ function back(text){
+    alert(Pointer_stringify(text));
+}
+
+window.addEventListener('message', function (e) {
+    
+        //e.source.postMessage(e.data + " message");
+        alert (e.data + ' message');
+  });
+
+document.querySelector('.mybutton1').addEventListener('click', function()
+{
+  alert('before async');
+
+  var pointer = Runtime.addFunction(back);
+  Module.ccall ('async', null, 'pointer', [pointer], { async: true });
+  //Runtime.removeFunction(pointer);// Do not call removeFunction becuase after 20 sec. js cannot fint callback. into main.cpp - function onMessage.
+  alert('after async');
+});
+
+
+ </script>
