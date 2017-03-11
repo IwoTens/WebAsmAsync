@@ -1,9 +1,10 @@
 # WebAsmAsync
 1. Compile as:
 
+Next command will cretae main.js from main.cpp
 emcc main.cpp -o main.js -s EXPORTED_FUNCTIONS="['_async']" -s RESERVED_FUNCTION_POINTERS=2 -s ASYNCIFY=1 -s ASYNCIFY_FUNCTIONS="['_async']" -std=c++11
 
-
+Next command will cretae worker.js from worker.cpp
 emcc -std=c++11 worker.cpp -s EXPORTED_FUNCTIONS="['_one']" -o worker.js  -s BUILD_AS_WORKER=1
 
 
