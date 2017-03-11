@@ -5,7 +5,7 @@
 extern "C" {
 
 void one(char* data, int size) {
-    sleep (10);
+    sleep (20);//Simulate work about 20 sec.
     emscripten_worker_respond(data, size);//Call main Thread. In this case call function onMessage in main.cpp
 }
 }
